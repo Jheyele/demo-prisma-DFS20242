@@ -11,12 +11,13 @@ const getAllPosts = async (request, response) => {
 
 const createPost = async (request, response) => {
     try {
-        const { title, content, user_id } = request.body;
+        const { title, content } = request.body;
+        const userId = request.userId
         const post = await prisma.post.create({
             data: {
                 title,
                 content,
-                user_id
+                user_id: userId
             }
         });
         response.status(201).json(post);
