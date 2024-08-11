@@ -24,6 +24,7 @@ model Post {
   title       String  
   content     String
   created     DateTime  @default(now())
+  image       String?
   user_id     String
   user_post   User  @relation(fields: [user_id], references: [id])
 

@@ -7,7 +7,7 @@ const authorization = require('../middlewares/authorization')
 
 const router = Router()
 
-router.get(("/users"), authenticate, userController.getAllUsers)
+router.get(("/users"), userController.getAllUsers)
 router.get(("/user/:id"), userController.findUserById)
 router.post(("/user"), userController.createUser)
 router.post(("/user-posts"), userController.createUserWithPosts)
@@ -16,7 +16,7 @@ router.delete(("/user/:userId"), authorization, userController.deleteUser)
 
 router.get(("/posts"), postController.getAllPosts)
 router.get(("/posts/user/:userId"), postController.getPostsByUser)
-router.post(("/post"), authenticate, postController.createPost)
+router.post(("/post"), postController.createPost)
 router.put(("/post/:id"), postController.updatePost)
 router.delete(("/post/:id"), postController.deletePost)
 
